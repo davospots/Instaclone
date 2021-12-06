@@ -98,16 +98,7 @@
 
 </div>
 
-{% if user_id.profile.description or user_id.profile.camps.count != 0 %}
-<div class="content-section-blue">
-    <p>
-     	{% for camp in user_id.profile.camps.all %}
-    	<span class="badge badge-dark">{{ camp.name }}</span>
-    	{% endfor %}
-    </p>
-    {{user_id.profile.description}}
-</div>
-{% endif %}
+
 
 	<div class="infinite-container">
     {% for post in posts %}

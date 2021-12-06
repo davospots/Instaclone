@@ -9,13 +9,6 @@ from imagekit.processors import ResizeToFill,Transpose
 from taggit.managers import TaggableManager
 
 
-WING = [
-    
-    ('ARMY','ARMY'),
-    ('NAVAL','NAVAL'),
-    ('AIR FORCE','AIR FORCE')
-    
-]
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -29,8 +22,8 @@ class Profile(models.Model):
     description = models.CharField(max_length=100, blank=True)
     follows = models.ManyToManyField(User,related_name="follows",blank=True)
     followers = models.ManyToManyField(User,related_name="followers",blank=True)
-    camps = TaggableManager(blank=True)
-    wing = models.CharField(max_length=10,choices=WING,blank=True)
+    
+    
     def __str__(self):
         return f"{self.user.username}'s Profile"
 
