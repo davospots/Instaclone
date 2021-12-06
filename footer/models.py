@@ -10,11 +10,6 @@ class Contact(models.Model):
 	def __str__(self):
 		return self.full_name
 
-class Facts(models.Model):
-	fact = models.TextField()
-	date = models.DateTimeField(default=timezone.now)
-	def __str__(self):
-		return self.fact
 
 class Quote(models.Model):
 	quote= models.TextField()
