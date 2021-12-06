@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', True)
 # development
 if config('MODE')=="dev":
    DATABASES = {
