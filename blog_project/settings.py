@@ -1,4 +1,5 @@
 import os
+from typing import cast
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -7,9 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '6+_(6czw@+gbm$5q@j6u#ubk^)19o&0+3wi!2u(%x^^y^!d(j#'
 
-DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','instaclone.com','www.instaclone']
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -72,7 +73,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = os.environ.get('DEBUG', True)
 # development
 if config('MODE')=="dev":
    DATABASES = {
