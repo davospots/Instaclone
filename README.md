@@ -24,7 +24,7 @@ User follow/unfollow,
 Post search,
 User search,
 Mobile Responsive,
-Post Share
+
 
 ### Prerequisites
 Things you need to install the project and how to install them
