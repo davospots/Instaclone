@@ -4,36 +4,35 @@
   <title>InstaClone</title>
 {% endblock %}
 {% block content %}
-  <div class="infinite-container">
-    {% for post in posts %}
-    <div class="article-div infinite-item" name="{{post.id}}">
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ post.author.profile.image_thumbnail_user.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2"
-                 href="{% url 'profile' post.author.username %}">{{ post.author }}
-              </a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}
-              </small>
-            </div>
-            <div class="img-heading-wrap">
-              <div class="article-post-img">
-                <img class="post-img" src="{{post.image_thumbnail.url}}">
-              </div>
-              <p class="h-font">
-                <a class="article-title"
-                     href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}
-                  </a>
-              </p>              
-            </div>
-            <a class="read-more" href="{% url 'blog:post-detail' post.slug %}"><small>Read More</small></a>
-            <div class="post-applause">
-              <span class="badge badge-secondary">{{post.likes.count}} Likes</span>
-            </div>
+<div class="infinite-container">
+  {% for post in posts %}
+    <article class="media content-section infinite-item">
+      <img class="rounded-circle article-img" src="{{ post.author.profile.image_thumbnail_user.url }}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2"
+               href="{% url 'profile' post.author.username %}">{{ post.author }}
+            </a>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}
+            </small>
           </div>
-        </article>
-      </div>
+          <div class="img-heading-wrap">
+            <div class="article-post-img">
+              <img class="post-img" src="{{post.image_thumbnail.url}}">
+            </div>
+            <p class="h-font">
+              <a class="article-title"
+                   href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}
+                </a>
+            </p>              
+          </div>
+          <p class="article-content">{{ post.content|truncatewords:30}}</p>
+          <a class="read-more" href="{% url 'blog:post-detail' post.slug %}"><small>Read More</small></a>
+          <div class="post-applause">
+            <span class="badge badge-secondary">{{post.likes.count}} likes</span>
+          </div>
+        </div>
+      </article>
     {% empty %}
       {% include "blog/no_posts_home.html" %}
     {% endfor %}
