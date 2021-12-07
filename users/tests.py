@@ -10,8 +10,8 @@ class ImageTestCase(TestCase):
   
         user = User.objects.create(
             username='test_user',
-            first_name='mzee',
-            last_name='mzima'
+            first_name='dav',
+            
         )
         Image.objects.create(
             image_name='test_image',
@@ -32,8 +32,8 @@ class ProfileTestCase(TestCase):
         # create a user
         user = User.objects.create(
             username='test_user',
-            first_name='mzee',
-            last_name='mzima'
+            first_name='dav',
+            
         )
         Profile.objects.create(
             bio='test bio',
@@ -53,7 +53,7 @@ class LikesTestCase(TestCase):
         user = User.objects.create(
             username='test_user',
             first_name='sdsa',
-            last_name='ddddd'
+            
         )
      
         Profile.objects.create(
@@ -75,7 +75,7 @@ class LikesTestCase(TestCase):
         user = User.objects.create(
             username='newuser',
             first_name='dddd',
-            last_name='sdsada'
+            
         )
        
         image = Image.objects.create(
