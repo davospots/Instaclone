@@ -13,13 +13,13 @@
         </div>
 
     {% if message %}
-      <div class="resent-posts">
-        <h1 class="resent-posts-heading">{{message}}</h1>
+      <div class="recent-posts">
+        <h1 class="recent-posts-heading">{{message}}</h1>
       </div>
     {% endif %}
     {% if users %}
-        <div class="resent-posts">
-            <h1 class="resent-posts-heading">User result:</h1>
+        <div class="recent-posts">
+            <h1 class="recent-posts-heading">User result:</h1>
         </div>
         <div class="content-section-blue"> 
           
@@ -46,8 +46,8 @@
     {% endif %}
 
     {% if result_posts %}
-        <div class="resent-posts">
-          <h1 class="resent-posts-heading">Post results for: {{search_input}}</h1>
+        <div class="recent-posts">
+          <h1 class="recent-posts-heading">Post results for: {{search_input}}</h1>
         </div>
       {% for post in result_posts %}
         
@@ -77,8 +77,8 @@
         </article>
     {% endfor %}
     {% endif %}
-      <div class="resent-posts">
-        <h1 class="resent-posts-heading">Recent Posts:</h1>
+      <div class="recent-posts">
+        <h1 class="recent-posts-heading">Recent Posts:</h1>
       </div>
     <div class="infinite-container">
     {% for post in posts %}
@@ -92,10 +92,16 @@
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}
               </small>
             </div>
-            <h2><a class="article-title"
-                   href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}
-                </a>
-            </h2>
+            <div class="img-heading-wrap">
+              <div class="article-post-img">
+                <img class="post-img" src="{{post.image_thumbnail.url}}">
+              </div>
+              <p class="h-font">
+                <a class="article-title"
+                     href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}
+                  </a>
+              </p>              
+            </div>
             <p class="article-content">{{ post.content|truncatewords:30}}</p>
             <a class="read-more" href="{% url 'blog:post-detail' post.slug %}"><small>Read More</small></a>
             <div class="post-applause">
